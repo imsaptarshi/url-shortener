@@ -9,7 +9,7 @@ const db = require("knex")({
     connection: {
         host: process.env.DB_HOST || "127.0.0.1",
         user: process.env.DB_USER || "postgres",
-        password: process.env.DB_PASSWORD || "hp",
+        password: process.env.DB_PASSWORD || "password",
         database: process.env.DB_NAME || "url_shortener",
     }
 });
