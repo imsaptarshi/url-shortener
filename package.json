@@ -1,7 +1,7 @@
 {
   "name": "url-shortener",
   "version": "1.0.0",
-  "description": "A basic URL Shortner works with postgresql in backend",
+  "description": "A basic URL Shortener works with postgresql in backend and next.js in frontend",
   "main": "index.js",
   "scripts": {
     "lint": "eslint",
