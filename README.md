@@ -1,6 +1,6 @@
 # url-shortener
 
-A basic URL Shortner works with postgresql in backend
+A basic URL Shortener works with postgresql in backend and Next.js in frontend
 
 ## Screenshots ...
 
