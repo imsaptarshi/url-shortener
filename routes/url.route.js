@@ -20,9 +20,10 @@ router.route("/add").post((req, res) => {
                 db.raw(query_add)
                     .then((respo) => {
                         res.send({
-                            shortened_url: shortened_url,
+                            shortened_url: shortened_url.url,
                             actual_url: actual_url,
                             successfull: true,
+                            isExisting: false,
                             response: respo
                         });
                     })
@@ -34,10 +35,24 @@ router.route("/add").post((req, res) => {
                     })
             }
             else {
-                res.send({
-                    message: "actual_url already exists",
-                    isExisting: true
-                });
+                const query_actual_url = `SELECT * FROM urls WHERE actual_url='${actual_url}';`;
+                db.raw(query_actual_url)
+                    .then((response) => {
+                        res.send({
+                            message: "actual_url already exists",
+                            id: response.rows[0].id,
+                            shortened_url: response.rows[0].shortened_url,
+                            actual_url: response.rows[0].actual_url,
+                            isExisting: true,
+                            successfull: true
+                        });
+                    })
+                    .catch((err) => {
+                        res.status(400).send({
+                            successfull: false,
+                            error: err
+                        });
+                    })
             }
         })
         .catch((e) => {
