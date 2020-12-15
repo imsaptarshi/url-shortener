@@ -10,7 +10,7 @@ export default function Redirect() {
   const [actualUrl, setActualUrl] = useState(undefined);
 
   axios
-    .get(`http://localhost:8080/url/${surl}`)
+    .get(`/url/${surl}`)
     .then((res) => {
       setActualUrl(res.data.actual_url);
     })

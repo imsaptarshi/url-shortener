@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const Knex = require("knex");
+const path = require("path")
 require("dotenv").config();
 
 //database setup
@@ -17,14 +17,14 @@ module.exports = db;
 
 const app = express();
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "build")))
+}
+
 const port = process.env.PORT
 
 app.use(express.json());
 app.use(cors());
-
-app.get("/", (req, res) => {
-    res.send({ server: "online" });
-});
 
 //middleware
 const urlRouter = require("./routes/url.route");
