@@ -4,7 +4,6 @@
   "description": "A basic URL Shortner works with postgresql in backend",
   "main": "index.js",
   "scripts": {
-    "build": "cd client && npm run build && mv build ..",
     "lint": "eslint",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm run dev",
