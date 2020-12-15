@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_ENV=production && next build",
+    "build": "npm i && NODE_ENV=production next build",
     "start": "next start"
   },
   "dependencies": {
